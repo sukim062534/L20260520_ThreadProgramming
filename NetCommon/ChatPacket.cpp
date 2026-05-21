@@ -2,12 +2,7 @@
 #include "ChatPacket.h"
 #include <sstream>
 
-//{
-//    "UserID" : "junios",
-//    "Message" : "Hello World",
-//    "Message2" : "Hello World",
-//    "Gold" : 1000
-//}
+
 
 void ChatPacket::Parse(std::string InString)
 {

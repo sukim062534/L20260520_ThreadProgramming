@@ -172,10 +172,6 @@ int main()
 	}
 
 
-
-
-
-
 	closesocket(ListenSocket);
 	WSACleanup();
 

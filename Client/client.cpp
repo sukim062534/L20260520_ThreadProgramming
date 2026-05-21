@@ -93,10 +93,10 @@ unsigned WINAPI InputThread(void* Argument)
 
 		
 		bool IsMoveCommand = true;
-		for (char ch : InputStr)
+		for (char input : InputStr)
 		{
-			if (ch != 'w' && ch != 'W' && ch != 'a' && ch != 'A' &&
-				ch != 's' && ch != 'S' && ch != 'd' && ch != 'D')
+			if (input != 'w' && input != 'W' && input != 'a' && input != 'A' &&
+				input != 's' && input != 'S' && input != 'd' && input != 'D')
 			{
 				IsMoveCommand = false;
 				break;
@@ -108,19 +108,19 @@ unsigned WINAPI InputThread(void* Argument)
 			bool IsMoved = false;
 			for (size_t i = 0; i < InputStr.length(); ++i)
 			{
-				char Ch = InputStr[i];
+				char input = InputStr[i];
 
-				if (Ch == 'w' || Ch == 'W') { Y -= 1; IsMoved = true;}
-				else if (Ch == 's' || Ch == 'S') { Y += 1; IsMoved = true;}
-				else if (Ch == 'a' || Ch == 'A') { X -= 1; IsMoved = true;}
-				else if (Ch == 'd' || Ch == 'D') { X += 1; IsMoved = true; }
+				if (input == 'w' || input == 'W') { Y -= 1; IsMoved = true;}
+				else if (input == 's' || input == 'S') { Y += 1; IsMoved = true;}
+				else if (input == 'a' || input == 'A') { X -= 1; IsMoved = true;}
+				else if (input == 'd' || input == 'D') { X += 1; IsMoved = true; }
 				
 				
 
 				MovePacket Move;
 				Move.Type = "Move";
 				Move.UserID = "aaaaaa";
-				Move.Key = std::string(1, toupper(Ch));
+				Move.Key = std::string(1, toupper(input));
 				Move.X = X;
 				Move.Y = Y;
 
@@ -136,8 +136,6 @@ unsigned WINAPI InputThread(void* Argument)
 
 			
 			}
-
-			
 		}
 		
 		else
