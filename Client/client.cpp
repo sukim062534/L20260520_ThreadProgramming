@@ -62,13 +62,13 @@ unsigned WINAPI RecvThread(void* Argument)
 		{
 			MovePacket Data;
 			Data.Parse(RecvBuffer);
-			cout << "\n" << Data.UserID << " 이동: (" << Data.X << ", " << Data.Y << ")" << endl;
+			cout  << Data.UserID << " 이동: (" << Data.X << ", " << Data.Y << ")" << endl;
 		}
 		else if (Type == "Chat")
 		{
 			ChatPacket Data;
 			Data.Parse(RecvBuffer);
-			cout << "\n" << Data.UserID << " : " << Data.Message << " " << Data.Gold << endl;
+			cout << Data.UserID << " : " << Data.Message << " " << endl;
 		}
 	}
 
@@ -116,6 +116,7 @@ unsigned WINAPI InputThread(void* Argument)
 				else if (Ch == 'd' || Ch == 'D') { X += 1; IsMoved = true; }
 				
 				
+
 				MovePacket Move;
 				Move.Type = "Move";
 				Move.UserID = "aaaaaa";

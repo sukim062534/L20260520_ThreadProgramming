@@ -6,7 +6,8 @@ void MovePacket::Parse(std::string InString)
 	JSONDocument.Parse(InString.c_str());
 
 	UserID = JSONDocument["UserID"].GetString();
-	Key = JSONDocument["Key"].GetString();
+	Type = JSONDocument["Type"].GetString();
+	X = JSONDocument["X"].GetInt();
 	X = JSONDocument["X"].GetInt();
 	Y = JSONDocument["Y"].GetInt();
 }

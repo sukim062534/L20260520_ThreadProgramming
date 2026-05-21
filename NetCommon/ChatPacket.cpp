@@ -15,24 +15,14 @@ void ChatPacket::Parse(std::string InString)
 
     UserID = JSONDocument["UserID"].GetString();
     Message = JSONDocument["Message"].GetString();
+    Type = JSONDocument["Type"].GetString();
     Gold = JSONDocument["Gold"].GetInt();
+   
 }
 
 std::string ChatPacket::ToString()
 {
-    //무식하게 문자열 만들기
-    //std::stringstream Stream;
 
-    //Stream << "{";
-    //Stream << "\"UserID\" : ";
-    //Stream << "\"" << UserID << "\", ";
-    //Stream << "\"Message\" : ";
-    //Stream << "\"" << Message << "\", ";
-    //Stream << "\"Gold\" : ";
-    //Stream << Gold;
-    //Stream << "}";
-
-    //JSONDocument를 문자열 변환 요청
     JSONDocument.SetObject();
     JSONDocument.AddMember("Type", std::string("Chat"), JSONDocument.GetAllocator());
     JSONDocument.AddMember("UserID", UserID, JSONDocument.GetAllocator());

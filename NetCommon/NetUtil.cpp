@@ -11,6 +11,7 @@ void SendAll(SOCKET ReceiverSocket, const char* Data, int Size)
 	do
 	{
 		SentBytes = send(ReceiverSocket, Data + TotalSendDataSize, WantSendDataSize - TotalSendDataSize, 0);
+		if (SentBytes <= 0) break;
 		TotalSendDataSize += SentBytes;
 		//printf("Send %dBytes %d Count\n", SentBytes, ++Count);
 	} while (TotalSendDataSize < WantSendDataSize);
